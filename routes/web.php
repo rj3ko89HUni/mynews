@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 //gitの練習
 
-Route::group(['prefix'], function() {
-    Route::get('XXX','AAAController@bbb');
-});
+// Route::group(['prefix'], function() {
+//     Route::get('XXX','AAAController@bbb');
+// });
 
 Auth::routes();
 
