@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//gitの練習
+ji
 
 // Route::group(['prefix'], function() {
 //     Route::get('XXX','AAAController@bbb');
