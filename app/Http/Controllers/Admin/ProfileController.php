@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
+use App\ProfileHistory;
+
+use Carbon\Carbon;
+
+
 class ProfileController extends Controller
 {
     public function add()
@@ -63,11 +68,17 @@ class ProfileController extends Controller
       // News Modelからデータを取得する
       $profile = Profile::find($request->id);
       // 送信されてきたフォームデータを格納する
-    //   $profile_form = $request->all();
+      $profile_form = $request->all();
       
-    //   unset($profile_form['_token']);
+      unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
-    //   $profile->fill($profile_form)->save();
+      $profile->fill($profile_form)->save();
+    
+      $history = new ProfileHistory;
+      $history->profile_id = $profile->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
+
       return redirect('admin/profile');
       
    }
