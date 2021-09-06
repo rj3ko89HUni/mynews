@@ -1,5 +1,6 @@
 @extends('layouts.front02')
 
+
 @section('content')
     <div class="container">
         <hr color="#c0c0c0">
