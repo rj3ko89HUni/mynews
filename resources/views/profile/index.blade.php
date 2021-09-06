@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.front02')
 
 @section('content')
     <div class="container">
@@ -8,19 +8,20 @@
                 <div class="headline col-md-10 mx-auto">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="caption mx-auto">
-                                <div class="image">
-                                    @if ($headline->image_path)
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
-                                    @endif
-                                </div>
-                                <div class="name p-2">
-                                    <h1>{{ str_limit($headline->name, 70) }}</h1>
-                                </div>
+                            <div class="name mt-3">
+                                {{ str_limit($headline->name, 100) }}
                             </div>
+                            <div class="introduction mt-3">
+                                {{ str_limit($headline->gender, 100) }}
+                            </div>                         
                         </div>
                         <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
+                            <div class="hobby mt-3">
+                                {{ str_limit($headline->hobby, 500) }}
+                            </div>
+                            <div class="introduction mt-3">
+                                {{ str_limit($headline->introduction, 500) }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -36,11 +37,17 @@
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
-                                <div class="title">
-                                    {{ str_limit($post->title, 150) }}
+                                <div class="name mt-3">
+                                    {{ str_limit($post->name, 100) }}
                                 </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
+                                <div class="gender mt-3">
+                                    {{ str_limit($post->gender, 100) }}
+                                </div>
+                                <div class="hobby mt-3">
+                                    {{ str_limit($post->hobby, 400) }}
+                                </div>
+                                <div class="introduction mt-3">
+                                    {{ str_limit($post->introduction, 500) }}
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">
